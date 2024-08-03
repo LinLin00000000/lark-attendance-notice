@@ -110,3 +110,6 @@ export async function getAttendanceGroupInfo(groupId: string) {
     return fetchWithTenantAuthorization(`${baseUrl}${groupId}?employee_type=employee_id&dept_type=open_id`)
 }
 
+export function unique<T>(iterable: Iterable<T>) {
+    return [...new Set(iterable)]
+}

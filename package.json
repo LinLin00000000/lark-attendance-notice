@@ -3,6 +3,7 @@
     "type": "module",
     "scripts": {},
     "dependencies": {
+        "@larksuiteoapi/node-sdk": "^1.30.0",
         "dotenv": "^16.4.5"
     }
 }
