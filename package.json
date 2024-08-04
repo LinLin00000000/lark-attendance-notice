@@ -5,5 +5,8 @@
     "dependencies": {
         "@larksuiteoapi/node-sdk": "^1.30.0",
         "dotenv": "^16.4.5"
+    },
+    "devDependencies": {
+        "prettier": "^3.3.3"
     }
 }
