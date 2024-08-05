@@ -1,4 +1,6 @@
 import 'dotenv/config'
+import { promises as fs } from 'fs'
+import path from 'path'
 
 export const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -136,4 +138,15 @@ export async function getAttendanceGroupInfo(groupId: string) {
 
 export function unique<T>(iterable: Iterable<T>) {
   return [...new Set(iterable)]
+}
+
+// 从指定路径读取文件并解析 JSON
+export const loadFile = (filePath: string) =>
+  fs.readFile(filePath, 'utf-8').then(JSON.parse)
+
+// 将对象序列化为 JSON 并保存到指定路径
+export const saveFile = async (filePath: string, obj: any) => {
+  const dir = path.dirname(filePath)
+  await fs.mkdir(dir, { recursive: true })
+  return fs.writeFile(filePath, JSON.stringify(obj, null, 2), 'utf-8')
 }
